@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="row">
+      <div class="col-2">&nbsp</div>
+      <div class="col-8">
+        <h1>ITBootcamp Chat <img src="chat_icon.png" width="10%" alt="" /></h1>
+        <h3>Choose a chatroom</h3>
+      </div>
+
+      <div class="col-2"></div>
+    </header>
+
+    <!-- Rooms -->
+    <nav class="row">
+      <div class="col-2">&nbsp</div>
+      <button id="btnGeneral" class="btn col-2">#general</button>
+      <button id="btnJs" class="btn col-2">#js</button>
+      <button id="btnHomework" class="btn col-2">#homework</button>
+      <button id="btnTests" class="btn col-2">#tests</button>
+      <div class="col-2">&nbsp</div>
+    </nav>
+
+    <!-- Section -->
+    <section class="row">
+      <div class="col-2">&nbsp</div>
+      <ul class="col-8">
+        <!-- Messages -->
+      </ul>
+      <div class="col-2">&nbsp</div>
+    </section>
+
+    <!-- Form for background color picker -->
+    <form id="form_color" class="row" action="">
+      <div class="col-2">&nbsp</div>
+      <input
+        type="color"
+        name=""
+        id="color"
+        class="col-6"
+      />
+      <input type="submit" value="Update color" class="btn col-2" />
+      <div class="col-2">&nbsp</div>
+    </form>
+
+    <!-- Form for submiting message -->
+    <form id="form_message" class="row" action="">
+      <div class="col-2">&nbsp</div>
+      <textarea
+        name=""
+        id="message"
+        cols="30"
+        id="message"
+        class="col-6"
+        rows="10"
+      >
+Your message...</textarea
+      >
+      <input type="submit" value="Send" class="btn col-2" />
+      <div class="col-2">&nbsp</div>
+    </form>
+    <div class="row" id="divMessage"></div>
+
+    <!-- Form for updating username -->
+    <form id="form_username" class="row" action="">
+      <div class="col-2">&nbsp</div>
+      <input
+        type="text"
+        name=""
+        id="username"
+        class="col-6"
+        placeholder="Update username..."
+      />
+      <input type="submit" value="Update" class="btn col-2" />
+      <div class="col-2">&nbsp</div>
+    </form>
+    <div class="row" id="divUsername"></div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyC-1LzpUOVOEIhh2f4T7oTgyYRO_S_Q2o8",
+        authDomain: "itbootcamp-e1d32.firebaseapp.com",
+        projectId: "itbootcamp-e1d32",
+        storageBucket: "itbootcamp-e1d32.appspot.com",
+        messagingSenderId: "345097194534",
+        appId: "1:345097194534:web:ccb09203111aa2b3a72ae7",
+        measurementId: "G-RVNHFDZG6P",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      let db = firebase.firestore();
+    </script>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
