@@ -47,7 +47,12 @@ export class Chatroom {
     let response = await this.chats.add(docChat);
     return response;
   }
-  
+
+  async deleteChat(id) {
+    let response = await this.chats.doc(id).delete();
+    return response;
+  }
+
 
   // callback method which listens changes in database
   getChats(callback) {
@@ -57,7 +62,7 @@ export class Chatroom {
       .onSnapshot((snapshot) => {
         snapshot.docChanges().forEach((change) => {
           if (change.type == "added") {
-            callback(change.doc.data());
+            callback(change.doc);
           }
         });
       });

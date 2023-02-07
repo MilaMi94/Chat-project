@@ -33,6 +33,7 @@ let chatUI = new ChatUI(ul);
 
 //messages on page
 chatroom.getChats((data) => {
+
   if (validator === false) {
     chatUI.templateLI(data, "left");
   } else if (validator === true) {
@@ -129,16 +130,10 @@ ul.addEventListener("click", (e) => {
   if (e.target.tagName == "IMG") {
     let img = e.target;
     let li = img.parentElement;
-    console.log(li.id);
-    let liMess = document.querySelector("li .message");
-    let message = liMess.textContent;
-    console.log(message);
+    let id = li.id;
     if (chatroom.username != "anonymus") {
       li.remove();
-      db.collection("chats")
-        .doc()
-        .where("message", "==", message)
-        .delete()
+      chatroom.deleteChat(id)
         .then(() => console.log("Uspesno obrisano"))
         .catch((err) => console.log(err));
     } else {

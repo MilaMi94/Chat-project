@@ -32,13 +32,15 @@ export class ChatUI {
 
   //template for every message
   templateLI(data, clas) {
-    let date = data.created_at.toDate();
+    let fullData = data;
+    let doc = fullData.data();
+    let date = doc.created_at.toDate();
     let formatDate = this.formatMessageDate(date);
-   
+
     let li = `
-    <li class=${clas}>
-        <span class="username">${data.username}: </span>
-        <span class="message">${data.message}</span><br>
+    <li id="${fullData.id}" class=${clas}>
+        <span class="username">${doc.username}: </span>
+        <span class="message">${doc.message}</span><br>
         <span class="date">${formatDate}</span>
         <img class="bin" src="bin.png" alt="bin" >
     </li>
