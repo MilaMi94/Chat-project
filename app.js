@@ -7,6 +7,7 @@ let inputMsg = document.querySelector("#message");
 let formUserName = document.getElementById("form_username");
 let inputUsername = document.getElementById("username");
 let nav = document.querySelector("nav");
+let navBtns = document.querySelectorAll('nav button')
 let divMsg = document.getElementById("divMessage");
 let divUsername = document.getElementById("divUsername");
 let inputColor = document.getElementById("color");
@@ -16,24 +17,32 @@ let validator = false;
 //check localStorage
 let username = "anonymus";
 if (localStorage.username) {
-  localStorage.setItem("username", username);
+  username = localStorage.getItem("username");
 }
-if (localStorage.getItem("room") === null) {
-  localStorage.setItem("room", "#general");
+let room = "#general";
+if (localStorage.room) {
+  room = localStorage.getItem("room");
 }
 if (localStorage.color) {
   let color = localStorage.getItem("color");
   document.body.style.backgroundColor = color;
 }
+// current room
+navBtns.forEach(btn =>{
+  if(btn.textContent == room){
+    btn.style.backgroundColor = "rgb(238, 219, 113)";
+  }else {
+    btn.style.backgroundColor = "";
+  }
+})
+
 
 //instance
-let room = localStorage.getItem("room");
 let chatroom = new Chatroom(room, username);
 let chatUI = new ChatUI(ul);
 
 //messages on page
 chatroom.getChats((data) => {
-
   if (validator === false) {
     chatUI.templateLI(data, "left");
   } else if (validator === true) {
@@ -42,23 +51,23 @@ chatroom.getChats((data) => {
 });
 
 // display messages by room
-let lastClickedButton;
+
 nav.addEventListener("click", (e) => {
   if (e.target.tagName == "BUTTON") {
-    let room = e.target.textContent;
-    let button = e.target;
-    chatUI.clearUL();
+    let room = e.target.textContent; 
     chatroom.updateRoom(room);
-
     localStorage.setItem("room", room);
-    if (lastClickedButton) {
-      lastClickedButton.style.backgroundColor = "";
-    }
-    // Set the background color of the current clicked button
-    button.style.backgroundColor = "rgb(238, 219, 113)";
-    // Store the reference to the current clicked button
-    lastClickedButton = button;
+    chatUI.clearUL();
 
+    //btn active background color
+    navBtns.forEach(btn =>{
+      if(btn.textContent == room){
+        btn.style.backgroundColor = "rgb(238, 219, 113)";
+      }else {
+        btn.style.backgroundColor = "";
+      }
+    })
+      
     chatroom.getChats((data) => {
       chatUI.templateLI(data);
     });
@@ -111,6 +120,7 @@ formUserName.addEventListener("submit", (e) => {
       divUsername.textContent = "";
     }, 1000);
   }
+ 
 });
 
 // btn update color
@@ -128,26 +138,23 @@ formColor.addEventListener("submit", (e) => {
 
 ul.addEventListener("click", (e) => {
   if (e.target.tagName == "IMG") {
-    let img = e.target;
-    let li = img.parentElement;
-    let id = li.id;
-    if (chatroom.username != "anonymus") {
-      li.remove();
-      chatroom.deleteChat(id)
-        .then(() => console.log("Uspesno obrisano"))
-        .catch((err) => console.log(err));
-    } else {
-      li.remove();
+    if(confirm("Are you sure you want to delete the message?") === true){
+      let img = e.target;
+      let li = img.parentElement;
+      let currentUsername = li.querySelector(".username").textContent;
+      currentUsername = currentUsername.substring(0, currentUsername.length - 2);
+      let id = li.id;
+   
+      if (chatroom.username == currentUsername) {
+        li.remove();
+        chatroom.deleteChat(id)
+          .then(() => console.log("Uspesno obrisano"))
+          .catch((err) => console.log(err));
+      } else {
+        li.remove();
+      }
     }
+   
   }
 });
-/*db.collection("customers")
-  .doc("cust001")
-  .delete()
-  .then(() => {
-    console.log(`Dokument uspesno izbrisan`);
-  })
-  .catch((e) => {
-    console.log(`Desila se greska: ` + e);
-  });
-*/
+
