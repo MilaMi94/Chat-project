@@ -1,3 +1,4 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
 * {
   box-sizing: border-box;
   padding: 0;
@@ -11,17 +12,34 @@ body {
 /*header*/
 header {
   margin-bottom: 10px;
-}
+  width: 100%;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  font-family: 'Lato', sans-serif;
+  text-shadow: 2px 2px rgba(84,58,183,1);
 
+}
 header h1 {
   text-align: center;
   color: white;
-  background-color: dodgerblue;
+  
 }
 header h3 {
-  color: rgb(255, 217, 0);
-  background-color: dodgerblue;
+  animation: cursor 1s infinite step-end, typing 10s infinite steps(16);
+  white-space: nowrap;
+  overflow: hidden;
+  color: white;
+ 
 }
+
+@keyframes typing{
+  0%{ width: 0ch} /*Text is hidden*/
+  30%{ width: 17ch;} /*The enitre header will be typed out*/
+  80%{ width: 17ch;} /*Text stays visible*/
+  90%{ width: 0ch;} /*Text is deleted*/
+  100%{ width: 0ch;} /*Text stays hidden*/
+}
+
+
 
 /* buttons*/
 .btn {
@@ -44,7 +62,6 @@ header h3 {
   transform: translateY(4px);
 }
 
-
 /*nav bar*/
 nav {
   font-size: 30px;
@@ -60,7 +77,6 @@ input[type="text"],
 input[type="color"] {
   border-radius: 5px;
   height: 30px;
-  margin: 5px;
   border: 2px solid dodgerblue;
 }
 
@@ -74,7 +90,6 @@ input[type="color"]:focus {
 textarea {
   border-radius: 5px;
   height: 30px;
-  margin: 5px;
   border: 2px solid dodgerblue;
 }
 textarea:focus {
@@ -84,7 +99,7 @@ textarea:focus {
 input[type="submit"] {
   border-radius: 5px;
   height: 30px;
-  margin: 5px;
+  
 }
 
 /*span in messages*/
@@ -99,24 +114,27 @@ span {
 }
 .bin {
   width: 10%;
+  float: right;
+  padding: 5px;
 }
 
 
 /*li messages*/
+
 ul {
   list-style-type: none;
-  background-image: url("chat.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;
   overflow-y: scroll;
+  
 }
 
 li {
   background-color: rgb(238, 219, 113);
   border-radius: 0px 10px 10px 10px;
   margin: 10px;
-  padding: 10px;
+  padding: 30px 15px 0 25px;
   width: 50%;
   border: 2px solid dodgerblue;
 }
