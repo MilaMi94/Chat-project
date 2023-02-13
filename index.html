@@ -1,113 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   
-  </head>
-  <body>
-    <!-- Header -->
-    <header class="row">
 
-      <div class="col-12">
-        <h1>ITBootcamp Chat <img src="chat_icon.png" width="5%" alt="" /></h1>
-        <h3>Choose a chatroom</h3>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat app UI</title>
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-   
-    </header>
+</head>
 
-    <!-- Rooms -->
-    <nav class="row">
-      
-      <button id="btnGeneral" class="btn col-3">#general</button>
-      <button id="btnJs" class="btn col-3">#js</button>
-      <button id="btnHomework" class="btn col-3">#homework</button>
-      <button id="btnTests" class="btn col-3">#tests</button>
-     
-    </nav>
+<body>
 
-    <!-- Section -->
-    <section class="row">
+  <!-- Header -->
+  <header class="row">
 
-      <ul class="col-12">
-        <!-- Messages -->
-      </ul>
-     
-    </section>
+    <div class="col-12">
+      <h1>ITBootcamp Chat App<img src="chat_icon.png" width="5%" alt="" /></h1>
+      <h3>Choose a chatroom</h3>
+    </div>
 
-    <!-- Form for background color picker -->
-    <form id="form_color" class="row" action="">
-     
-      <input
-        type="color"
-        name=""
-        id="color"
-        class="col-8"
-      />
-      <button type="submit" class=" col-4" >Update color</button>
-      
-    </form>
+  </header>
 
-    <!-- Form for submiting message -->
-    <form id="form_message" class="row" action="">
-     
-      <textarea
-        name=""
-        id="message"
-        cols="30"
-        id="message"
-        class="col-8"
-        rows="10"
-      >
-Your message...</textarea
-      >
-      <button type="submit" class=" col-4" ><i class="material-icons">send</i></button>
-      
-    </form>
-    <div class="row" id="divMessage"></div>
+  <!-- Rooms -->
+  <nav class="row">
 
-    <!-- Form for updating username -->
-    <form id="form_username" class="row" action="">
-      
-      <input
-        type="text"
-        name=""
-        id="username"
-        class="col-8"
-        placeholder="Update username..."
-      />
-      <button type="submit" class=" col-4" >Update</button>
-     
-    </form>
-    <div class="row" id="divUsername"></div>
+    <button id="btnGeneral" class="btn col-3">#general</button>
+    <button id="btnJs" class="btn col-3">#js</button>
+    <button id="btnHomework" class="btn col-3">#homework</button>
+    <button id="btnTests" class="btn col-3">#tests</button>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+  </nav>
 
-    <script>
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyC-1LzpUOVOEIhh2f4T7oTgyYRO_S_Q2o8",
-        authDomain: "itbootcamp-e1d32.firebaseapp.com",
-        projectId: "itbootcamp-e1d32",
-        storageBucket: "itbootcamp-e1d32.appspot.com",
-        messagingSenderId: "345097194534",
-        appId: "1:345097194534:web:ccb09203111aa2b3a72ae7",
-        measurementId: "G-RVNHFDZG6P",
-      };
+  <!-- Section -->
+  <section class="row">
 
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      let db = firebase.firestore();
-    </script>
+    <ul class="col-12">
+      <!-- Messages -->
+    </ul>
 
-    <script type="module" src="app.js"></script>
-  </body>
+  </section>
+
+  <!-- Form for background color picker -->
+  <form id="form_color" class="row" action="">
+
+    <input type="color" name="" id="color" class="col-8" />
+    <button type="submit" class=" col-4">Update color</button>
+
+  </form>
+
+  <!-- Form for submiting message -->
+  <form id="form_message" class="row" action="">
+    <div class="col-8">
+      <img src="emo.png" class="emo">
+      <textarea name="" id="message" cols="30" id="message" rows="10">
+  Your message...</textarea>
+    </div>
+
+    <button type="submit" class="col-4"><i class="material-icons">send</i></button>
+
+  </form>
+  <div class="row" id="divMessage"></div>
+
+  <!-- Form for updating username -->
+  <form id="form_username" class="row" action="">
+
+    <input type="text" name="" id="username" class="col-8" placeholder="Update username..." />
+    <button type="submit" class=" col-4">Update</button>
+
+  </form>
+  <div class="row" id="divUsername"></div>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyC-1LzpUOVOEIhh2f4T7oTgyYRO_S_Q2o8",
+      authDomain: "itbootcamp-e1d32.firebaseapp.com",
+      projectId: "itbootcamp-e1d32",
+      storageBucket: "itbootcamp-e1d32.appspot.com",
+      messagingSenderId: "345097194534",
+      appId: "1:345097194534:web:ccb09203111aa2b3a72ae7",
+      measurementId: "G-RVNHFDZG6P",
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    let db = firebase.firestore();
+  </script>
+
+  <script type="module" src="app.js"></script>
+</body>
+
 </html>

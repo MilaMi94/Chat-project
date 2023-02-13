@@ -1,153 +1,218 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
 * {
-  box-sizing: border-box;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
-body {
-  color: dodgerblue;
-}
 
-/*header*/
+/* header */
+
 header {
   margin-bottom: 10px;
   width: 100%;
-  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+  text-shadow: 2px 2px rgba(84, 58, 183, 1);
   font-family: 'Lato', sans-serif;
-  text-shadow: 2px 2px rgba(84,58,183,1);
 
 }
+
 header h1 {
   text-align: center;
   color: white;
-  
+
 }
+
 header h3 {
   animation: cursor 1s infinite step-end, typing 10s infinite steps(16);
   white-space: nowrap;
   overflow: hidden;
   color: white;
- 
+
 }
 
-@keyframes typing{
-  0%{ width: 0ch} /*Text is hidden*/
-  30%{ width: 17ch;} /*The enitre header will be typed out*/
-  80%{ width: 17ch;} /*Text stays visible*/
-  90%{ width: 0ch;} /*Text is deleted*/
-  100%{ width: 0ch;} /*Text stays hidden*/
+@keyframes typing {
+  0% {
+    width: 0ch
+  }
+
+  /* Text is hidden */
+  30% {
+    width: 17ch;
+  }
+
+  /*The enitre header will be typed out*/
+  80% {
+    width: 17ch;
+  }
+
+  /*Text stays visible*/
+  90% {
+    width: 0ch;
+  }
+
+  /*Text is deleted*/
+  100% {
+    width: 0ch;
+  }
+
+  /*Text stays hidden*/
 }
 
+/* buttons */
 
+nav .btn {
 
-/* buttons*/
-.btn {
   background-color: dodgerblue;
   color: white;
+  text-align: center;
   height: 40px;
-  border: none;
+  border: 3px solid white;
   border-radius: 15px;
   font-weight: bold;
+
 }
 
-.btn:hover {
+nav .btn:hover {
   cursor: pointer;
-  background-color: rgb(238, 219, 113);
-  font-weight: bold;
-}
-.btn:active {
-  background-color: rgb(238, 219, 113);
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-
-/*nav bar*/
-nav {
-  font-size: 30px;
-  text-align: center;
-}
-nav .btn {
-  border: 3px solid white;
-}
-
-/* forms */
-
-input[type="text"],
-input[type="color"] {
-  border-radius: 5px;
-  height: 30px;
-  border: 2px solid dodgerblue;
-}
-
-input[type="text"]:focus {
-  outline: 3px solid rgb(238, 219, 113);
-}
-input[type="color"]:focus {
-  outline: 3px solid rgb(238, 219, 113);
-}
-
-textarea {
-  border-radius: 5px;
-  height: 30px;
-  border: 2px solid dodgerblue;
-}
-textarea:focus {
-  outline: 3px solid rgb(238, 219, 113);
-}
-
-input[type="submit"] {
-  border-radius: 5px;
-  height: 30px;
-  
-}
-
-/*span in messages*/
-span {
-  margin: 5px;
-}
-.username {
-  font-weight: bold;
-}
-.date {
-  color: grey;
-}
-.bin {
-  width: 10%;
-  float: right;
-  padding: 5px;
-}
+  background: rgba(84, 58, 183, 1);
 
 
-/*li messages*/
+}
 
-ul {
+nav .btn:active {
+  background-color: rgba(84, 58, 183, 1);
+  transform: translateY(5px);
+
+}
+
+/* li messages */
+
+section ul {
+  margin: 20px;
   list-style-type: none;
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 500px;
   overflow-y: scroll;
-  
+  display: flex;
+  flex-direction: column;
+
+
 }
 
-li {
-  background-color: rgb(238, 219, 113);
-  border-radius: 0px 10px 10px 10px;
-  margin: 10px;
-  padding: 30px 15px 0 25px;
-  width: 50%;
-  border: 2px solid dodgerblue;
+section ul li {
+  background-color: rgb(197, 220, 244);
+  border-radius: 0px 20px 20px 20px;
+  margin: 5px;
+  padding: 30px 15px 10px 25px;
+  color: rgba(84, 58, 183, 1);
+  max-width: 30%;
+  word-break: break-all;
 }
 
 .left {
   float: left;
-  border-radius: 0px 10px 10px 10px;
 }
 
 .right {
   float: right;
-  border-radius: 10px 0px 10px 10px;
 }
+
+/* span in messages */
+
+.username {
+  font-weight: bold;
+
+}
+
+.date {
+  color: grey;
+
+}
+
+.bin {
+  float: right;
+  width: 25px;
+  margin-right: 10px;
+  padding: 5px;
+
+}
+
+/* forms */
+
+#form_color,
+#form_message {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+
+}
+
+#form_color input{
+
+  display: block;
+  flex: 1;
+  width: 100%;
+  height: 50px;
+  border-radius: 60px;
+  margin: 5px;
+  padding-left: 40px;
+  padding-right: 90px;
+  border: 2px solid #ccc;
+  color: #555;
+  resize: none;
+
+}
+
+
+
+#form_message textarea {
+  display: block;
+  flex: 1;
+  width: 100%;
+  height: 50px;
+  border-radius: 60px;
+  margin: 5px;
+  padding: 15px;
+  padding-left: 40px;
+  padding-right: 90px;
+  border: 2px solid #ccc;
+  color: #555;
+  resize: none;
+}
+
+#form_message textarea:focus,#form_message button:focus  {
+  outline: 2px solid dodgerblue;
+}
+
+#form_message .emo {
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 10px;
+  top: 12px;
+}
+
+#form_message button{
+  border: none;
+  margin-left: 30px;
+  display: block;
+  flex: 1;
+  width: 100%;
+  height: 50px;
+  border-radius: 60px;
+  border: 2px solid #ccc;
+  color: #555;
+  resize: none;
+  cursor: pointer;
+}
+
+
+/* hidden div */
 
 #divMessage {
   text-align: center;

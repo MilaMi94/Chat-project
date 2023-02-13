@@ -30,7 +30,7 @@ if (localStorage.color) {
 // current room
 navBtns.forEach(btn =>{
   if(btn.textContent == room){
-    btn.style.backgroundColor = "rgb(238, 219, 113)";
+    btn.style.backgroundColor = "rgba(84, 58, 183, 1)";
   }else {
     btn.style.backgroundColor = "";
   }
@@ -62,7 +62,7 @@ nav.addEventListener("click", (e) => {
     //btn active background color
     navBtns.forEach(btn =>{
       if(btn.textContent == room){
-        btn.style.backgroundColor = "rgb(238, 219, 113)";
+        btn.style.backgroundColor = "rgba(84, 58, 183, 1)";
       }else {
         btn.style.backgroundColor = "";
       }
