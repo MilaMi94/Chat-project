@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,13 +14,17 @@
 </head>
 
 <body>
+  <div id="blur"></div>
 
   <!-- Header -->
   <header class="row">
 
     <div class="col-12">
-      <h1>ITBootcamp Chat App<img src="chat_icon.png" width="5%" alt="" /></h1>
+      <h1>ITBootcamp Chat App<img src="img/chat_icon.png" width="5%" alt="chat" /><img class="user" src="img/user.png"
+          width="5%" alt="user">
+      </h1>
       <h3>Choose a chatroom</h3>
+
     </div>
 
   </header>
@@ -45,8 +50,10 @@
 
   <!-- Form for background color picker -->
   <form id="form_color" class="row" action="">
+    <div class="col-8">
+      <input type="color" name="" id="color" />
+    </div>
 
-    <input type="color" name="" id="color" class="col-8" />
     <button type="submit" class=" col-4">Update color</button>
 
   </form>
@@ -54,9 +61,9 @@
   <!-- Form for submiting message -->
   <form id="form_message" class="row" action="">
     <div class="col-8">
-      <img src="emo.png" class="emo">
-      <textarea name="" id="message" cols="30" id="message" rows="10">
-  Your message...</textarea>
+      <img src="img/emo.png" class="emo">
+      <textarea placeholder="Your message..." id="message" cols="30" id="message" rows="10">
+  </textarea>
     </div>
 
     <button type="submit" class="col-4"><i class="material-icons">send</i></button>
@@ -65,13 +72,16 @@
   <div class="row" id="divMessage"></div>
 
   <!-- Form for updating username -->
-  <form id="form_username" class="row" action="">
+  <div class="formPopup">
+    <form id="form_username">
 
-    <input type="text" name="" id="username" class="col-8" placeholder="Update username..." />
-    <button type="submit" class=" col-4">Update</button>
+      <input type="text" name="" id="username" class="col-12" placeholder="Update username..." />
+      <button type="submit" class="col-12">Update</button>
+      <button type="submit" class="col-12 close">Close</button>
+    </form>
+    <div class="row" id="divUsername"></div>
+  </div>
 
-  </form>
-  <div class="row" id="divUsername"></div>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>

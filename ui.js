@@ -42,7 +42,7 @@ export class ChatUI {
         <span class="username">${doc.username}: </span>
         <span class="message">${doc.message}</span><br>
         <span class="date">${formatDate}</span>
-        <img class="bin" src="bin.png" alt="bin" >
+        <img class="bin" src="img/bin.png" alt="bin" >
     </li>
     `;
     this.list.innerHTML += li;

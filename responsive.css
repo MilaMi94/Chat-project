@@ -66,8 +66,8 @@
 @media only screen and (max-width: 599px) {
   [class*="col-"] {
     width: 100%;
-
+    
   }
-
+  
 
 }

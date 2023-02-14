@@ -7,6 +7,7 @@
 }
 
 
+
 /* header */
 
 header {
@@ -22,6 +23,12 @@ header h1 {
   text-align: center;
   color: white;
 
+}
+
+header h1 .user {
+  float: right;
+  margin-right: 20px;
+  margin-top: 10px;
 }
 
 header h3 {
@@ -110,6 +117,7 @@ section ul li {
   word-break: break-all;
 }
 
+
 .left {
   float: left;
 }
@@ -151,7 +159,7 @@ section ul li {
 
 }
 
-#form_color input{
+#form_color input {
 
   display: block;
   flex: 1;
@@ -166,7 +174,6 @@ section ul li {
   resize: none;
 
 }
-
 
 
 #form_message textarea {
@@ -184,7 +191,10 @@ section ul li {
   resize: none;
 }
 
-#form_message textarea:focus,#form_message button:focus  {
+#form_message textarea:focus,
+#form_message button:focus,
+#form_color input:focus,
+#form_color button:focus {
   outline: 2px solid dodgerblue;
 }
 
@@ -195,9 +205,12 @@ section ul li {
   position: absolute;
   left: 10px;
   top: 12px;
+  z-index: 1;
+
 }
 
-#form_message button{
+#form_message button,
+#form_color button {
   border: none;
   margin-left: 30px;
   display: block;
@@ -210,6 +223,55 @@ section ul li {
   resize: none;
   cursor: pointer;
 }
+
+.formPopup {
+  display: none;
+  border-radius: 20px;
+  border: 2px solid #ccc ;
+  max-width: 300px;
+  padding: 50px;
+  background-color: white;
+  margin-right: 50px;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.formPopup input {
+  margin: 10px;
+  height: 50px;
+  border-radius: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid #ccc;
+  color: #555;
+  resize: none;
+}
+.formPopup button{
+  border-radius: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 30px;
+  border: 2px solid #ccc;
+  margin: 10px;
+}
+
+.formPopup button:focus, .formPopup input:focus{
+  outline: 2px solid dodgerblue;
+}
+
+.blurDiv {
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+
+  /* Full height */
+  height: 100%;
+
+}
+
 
 
 /* hidden div */

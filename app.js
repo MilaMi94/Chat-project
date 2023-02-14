@@ -28,10 +28,10 @@ if (localStorage.color) {
   document.body.style.backgroundColor = color;
 }
 // current room
-navBtns.forEach(btn =>{
-  if(btn.textContent == room){
+navBtns.forEach(btn => {
+  if (btn.textContent == room) {
     btn.style.backgroundColor = "rgba(84, 58, 183, 1)";
-  }else {
+  } else {
     btn.style.backgroundColor = "";
   }
 })
@@ -54,20 +54,20 @@ chatroom.getChats((data) => {
 
 nav.addEventListener("click", (e) => {
   if (e.target.tagName == "BUTTON") {
-    let room = e.target.textContent; 
+    let room = e.target.textContent;
     chatroom.updateRoom(room);
     localStorage.setItem("room", room);
     chatUI.clearUL();
 
     //btn active background color
-    navBtns.forEach(btn =>{
-      if(btn.textContent == room){
+    navBtns.forEach(btn => {
+      if (btn.textContent == room) {
         btn.style.backgroundColor = "rgba(84, 58, 183, 1)";
-      }else {
+      } else {
         btn.style.backgroundColor = "";
       }
     })
-      
+
     chatroom.getChats((data) => {
       chatUI.templateLI(data);
     });
@@ -95,6 +95,7 @@ formMsg.addEventListener("submit", (e) => {
 //form update username
 formUserName.addEventListener("submit", (e) => {
   e.preventDefault();
+
   let newUsername = inputUsername.value;
   if (validator == false) {
     validator = true;
@@ -120,7 +121,8 @@ formUserName.addEventListener("submit", (e) => {
       divUsername.textContent = "";
     }, 1000);
   }
- 
+
+
 });
 
 // btn update color
@@ -138,13 +140,13 @@ formColor.addEventListener("submit", (e) => {
 
 ul.addEventListener("click", (e) => {
   if (e.target.tagName == "IMG") {
-    if(confirm("Are you sure you want to delete the message?") === true){
+    if (confirm("Are you sure you want to delete the message?") === true) {
       let img = e.target;
       let li = img.parentElement;
       let currentUsername = li.querySelector(".username").textContent;
       currentUsername = currentUsername.substring(0, currentUsername.length - 2);
       let id = li.id;
-   
+
       if (chatroom.username == currentUsername) {
         li.remove();
         chatroom.deleteChat(id)
@@ -154,7 +156,23 @@ ul.addEventListener("click", (e) => {
         li.remove();
       }
     }
-   
+
   }
 });
 
+
+//click on icon user 
+
+let iconUser = document.querySelector('.user');
+let formPopup = document.querySelector('.formPopup');
+let closePopup = document.querySelector('.close');
+let blurDiv = document.getElementById('blur');
+
+iconUser.addEventListener('click', () => {
+  blurDiv.classList.add('blurDiv');
+  formPopup.style.display = "block";
+})
+
+closePopup.addEventListener('click', () => {
+  formPopup.style.display = "none";
+})
