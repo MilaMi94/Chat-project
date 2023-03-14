@@ -7,7 +7,7 @@ let inputMsg = document.querySelector("#message");
 let formUserName = document.getElementById("form_username");
 let inputUsername = document.getElementById("username");
 let nav = document.querySelector("nav");
-let navBtns = document.querySelectorAll('nav button')
+let navBtns = document.querySelectorAll("nav button");
 let divMsg = document.getElementById("divMessage");
 let divUsername = document.getElementById("divUsername");
 let inputColor = document.getElementById("color");
@@ -28,14 +28,13 @@ if (localStorage.color) {
   document.body.style.backgroundColor = color;
 }
 // current room
-navBtns.forEach(btn => {
+navBtns.forEach((btn) => {
   if (btn.textContent == room) {
     btn.style.backgroundColor = "rgba(84, 58, 183, 1)";
   } else {
     btn.style.backgroundColor = "";
   }
-})
-
+});
 
 //instance
 let chatroom = new Chatroom(room, username);
@@ -60,13 +59,13 @@ nav.addEventListener("click", (e) => {
     chatUI.clearUL();
 
     //btn active background color
-    navBtns.forEach(btn => {
+    navBtns.forEach((btn) => {
       if (btn.textContent == room) {
         btn.style.backgroundColor = "rgba(84, 58, 183, 1)";
       } else {
         btn.style.backgroundColor = "";
       }
-    })
+    });
 
     chatroom.getChats((data) => {
       chatUI.templateLI(data);
@@ -121,8 +120,6 @@ formUserName.addEventListener("submit", (e) => {
       divUsername.textContent = "";
     }, 1000);
   }
-
-
 });
 
 // btn update color
@@ -144,35 +141,37 @@ ul.addEventListener("click", (e) => {
       let img = e.target;
       let li = img.parentElement;
       let currentUsername = li.querySelector(".username").textContent;
-      currentUsername = currentUsername.substring(0, currentUsername.length - 2);
+      currentUsername = currentUsername.substring(
+        0,
+        currentUsername.length - 2
+      );
       let id = li.id;
 
       if (chatroom.username == currentUsername) {
         li.remove();
-        chatroom.deleteChat(id)
+        chatroom
+          .deleteChat(id)
           .then(() => console.log("Uspesno obrisano"))
           .catch((err) => console.log(err));
       } else {
         li.remove();
       }
     }
-
   }
 });
 
+//click on icon user
 
-//click on icon user 
+let iconUser = document.querySelector(".user");
+let formPopup = document.querySelector(".formPopup");
+let closePopup = document.querySelector(".close");
+let blurDiv = document.getElementById("blur");
 
-let iconUser = document.querySelector('.user');
-let formPopup = document.querySelector('.formPopup');
-let closePopup = document.querySelector('.close');
-let blurDiv = document.getElementById('blur');
-
-iconUser.addEventListener('click', () => {
-  blurDiv.classList.add('blurDiv');
+iconUser.addEventListener("click", () => {
+  blurDiv.classList.add("blurDiv");
   formPopup.style.display = "block";
-})
+});
 
-closePopup.addEventListener('click', () => {
+closePopup.addEventListener("click", () => {
   formPopup.style.display = "none";
-})
+});
