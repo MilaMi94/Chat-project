@@ -30,6 +30,9 @@ header h1 .user {
   margin-right: 20px;
   margin-top: 10px;
 }
+header h1 .user:hover {
+  cursor: pointer;
+}
 
 header h3 {
   animation: cursor 1s infinite step-end, typing 10s infinite steps(16);
@@ -218,11 +221,17 @@ section ul li {
   padding: 50px;
   background-color: white;
   margin-right: 50px;
-  z-index: 2;
+  z-index: 20000;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.blur {
+  /* Add the blur effect */
+  filter: blur(10px);
+  /* Full height */
+  height: 100%;
 }
 
 .formPopup input {
@@ -247,15 +256,6 @@ section ul li {
 .formPopup button:focus,
 .formPopup input:focus {
   outline: 2px solid dodgerblue;
-}
-
-.blurDiv {
-  /* Add the blur effect */
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
-
-  /* Full height */
-  height: 100%;
 }
 
 /* hidden div */

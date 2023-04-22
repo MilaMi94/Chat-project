@@ -165,13 +165,14 @@ ul.addEventListener("click", (e) => {
 let iconUser = document.querySelector(".user");
 let formPopup = document.querySelector(".formPopup");
 let closePopup = document.querySelector(".close");
-let blurDiv = document.getElementById("blur");
+let blur = document.querySelector("div:first-child");
 
 iconUser.addEventListener("click", () => {
-  blurDiv.classList.add("blurDiv");
+  blur.classList.toggle("blur");
   formPopup.style.display = "block";
 });
 
 closePopup.addEventListener("click", () => {
   formPopup.style.display = "none";
+  blur.classList.toggle("blur");
 });
